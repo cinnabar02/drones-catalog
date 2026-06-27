@@ -3,7 +3,7 @@ import { Hono } from 'hono';
 import { serve } from '@hono/node-server'
 import { cors } from 'hono/cors'
 import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from './generated/prisma'
+import { PrismaClient } from '../generated/prisma'
 
 
 const app = new Hono();
