@@ -31,7 +31,7 @@
         border: 1px solid #c0bfbf;
         border-radius: 12px;
         overflow: hidden;
-        width: 350px;
+        width: 100%;
         height: 400px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         display: flex;
@@ -45,20 +45,18 @@
         font-family: "courier new", monospace;
         padding: 5px;
         font-size: 1.5rem;
-        margin-top: 0;
-        margin-bottom: 0;
+        margin: 0 5px;
     }
 
     .card-content p {
         font-family: "courier new", monospace;
         padding: 5px;
         font-size: 1rem;
-        margin-top: 0;
-        margin-bottom: 0;
+        margin: 0 5px;
     }
 
     .card img {
-        width: 350px;
+        width: 100%;
         height: 200px;
         object-position: center;
         object-fit: cover;
@@ -77,8 +75,7 @@
         font-family: "courier new", monospace;
         padding: 5px;
         font-size: 0.85rem;
-        margin-top: auto;
-        margin-bottom: 5px;
+        margin: auto 0 5px 5px;
     }
 
     .card:hover {
