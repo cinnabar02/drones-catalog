@@ -7,10 +7,10 @@
         type: string;
     };
 
-    const { name, description, imageUrl, country, type } = $props();
+    const { name, description, imageUrl, country, type, selected } = $props();
 </script>
 
-<div class="card">
+<div class="card" class:selected>
     <img src={imageUrl} alt={name} />
 
     <div class="card-content">
@@ -36,6 +36,9 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: column;
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
     }
 
     .card-content h3 {
@@ -76,5 +79,18 @@
         font-size: 0.85rem;
         margin-top: auto;
         margin-bottom: 5px;
+    }
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .card.selected {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        transition:
+            transform 0.25s ease-out,
+            box-shadow 0.25s ease-out;
     }
 </style>

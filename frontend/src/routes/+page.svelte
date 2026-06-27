@@ -1,5 +1,6 @@
 <script lang="ts">
     import Card from "./Card.svelte";
+    import Sidebar from "./Sidebar.svelte";
     import { onMount } from "svelte";
 
     interface Drone {
@@ -10,6 +11,7 @@
         type: string;
     }
 
+    let selectedDrone = $state<Drone | null>(null);
     let drones = $state(<Drone[]>[]);
 
     onMount(async () => {
@@ -18,15 +20,28 @@
     });
 </script>
 
+{#if selectedDrone}
+    <Sidebar drone={selectedDrone} onClose={() => (selectedDrone = null)} />
+{/if}
+
 <div class="drone-catalog">
     {#each drones as drone, i (i)}
-        <Card
-            name={drone.name}
-            description={drone.description}
-            imageUrl={drone.imageUrl}
-            country={drone.country}
-            type={drone.type}
-        />
+        <button
+            class="card-wrapper"
+            class:selected={selectedDrone?.name === drone.name}
+            onclick={() =>
+                (selectedDrone =
+                    selectedDrone?.name === drone.name ? null : drone)}
+        >
+            <Card
+                name={drone.name}
+                description={drone.description}
+                imageUrl={drone.imageUrl}
+                country={drone.country}
+                type={drone.type}
+                selected={selectedDrone?.name === drone.name}
+            />
+        </button>
     {/each}
 </div>
 
@@ -34,6 +49,11 @@
     .drone-catalog {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        gap: 10px;
+    }
+
+    .card-wrapper {
+        all: unset;
+        display: block;
+        cursor: pointer;
     }
 </style>

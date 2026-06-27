@@ -11,6 +11,7 @@ model Drone {
   id          Int    @id @default(autoincrement())
   name        String
   description String
+  details     String
   imageUrl    String
   country     String
   type        String
