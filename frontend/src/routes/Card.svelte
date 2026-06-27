@@ -74,7 +74,7 @@
         color: #f5592a;
         font-family: "courier new", monospace;
         padding: 5px;
-        font-size: 0.85rem;
+        font-size: 0.95rem;
         margin: auto 0 5px 5px;
     }
 
