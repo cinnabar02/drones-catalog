@@ -40,15 +40,6 @@ npx tsx index.ts
 
 API работает на: http://localhost:3000
 
-### Prisma Studio (управление БД)
-
-```bash
-cd backend
-npx prisma studio
-```
-
-Открыть: http://localhost:5555
-
 ## Переменные окружения
 
 Создать файл `backend/.env`:
