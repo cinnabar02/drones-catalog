@@ -24,7 +24,7 @@
         top: 0;
         right: 0;
         z-index: 100;
-        width: 500px;
+        width: min(500px, 100vw);
         height: 100vh;
         background: #e7e7e7;
         padding: 20px;
