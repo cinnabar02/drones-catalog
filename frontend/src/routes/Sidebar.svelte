@@ -29,6 +29,7 @@
         height: 100vh;
         background: #e7e7e7;
         padding: 20px;
+        box-sizing: border-box;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
         overflow-y: auto;
     }
