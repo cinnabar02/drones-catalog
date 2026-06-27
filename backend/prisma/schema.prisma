@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Drone {
+  id          Int    @id @default(autoincrement())
+  name        String
+  description String
+  imageUrl    String
+  country     String
+  type        String
+}

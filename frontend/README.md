@@ -1,42 +1,79 @@
-# sv
+# Drones Catalog
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Каталог украинских и российских дронов. Фронтенд на Svelte + TypeScript, бэкенд на Hono, база данных PostgreSQL (Neon) через Prisma.
 
-## Creating a project
+## Стек
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Frontend:** Svelte 5, TypeScript, Vite
+- **Backend:** Hono, TypeScript, tsx
+- **БД:** PostgreSQL (Neon), Prisma ORM
 
-```sh
-# create a new project
-npx sv create my-app
+## Структура проекта
+
+```
+drones-catalog/
+  frontend/   # Svelte приложение
+  backend/    # Hono API сервер
+  bot/        # (в разработке)
 ```
 
-To recreate this project with the same configuration:
+## Запуск
 
-```sh
-# recreate this project
-npx sv@0.16.1 create --template minimal --types ts --install npm .
-```
+### Frontend
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
+```bash
+cd frontend
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+Открыть: http://localhost:5173
 
-To create a production version of your app:
+### Backend
 
-```sh
-npm run build
+```bash
+cd backend
+npm install
+npx prisma generate
+npx tsx index.ts
 ```
 
-You can preview the production build with `npm run preview`.
+API работает на: http://localhost:3000
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+### Prisma Studio (управление БД)
+
+```bash
+cd backend
+npx prisma studio
+```
+
+Открыть: http://localhost:5555
+
+## Переменные окружения
+
+Создать файл `backend/.env`:
+
+```
+DATABASE_URL="postgresql://..."
+```
+
+## Prisma
+
+Применить миграции:
+
+```bash
+cd backend
+npx prisma migrate dev --name <название>
+```
+
+Сгенерировать клиент после изменения схемы:
+
+```bash
+npx prisma generate
+```
+
+## API
+
+| Метод | Путь      | Описание          |
+|-------|-----------|-------------------|
+| GET   | /drones   | Получить все дроны |
