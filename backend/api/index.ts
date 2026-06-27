@@ -2,8 +2,7 @@ import 'dotenv/config';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors'
 import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '../generated/prisma'
-
+import { PrismaClient } from '@prisma/client'
 
 const app = new Hono();
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL })
