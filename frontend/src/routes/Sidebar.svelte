@@ -23,6 +23,7 @@
         position: fixed;
         top: 0;
         right: 0;
+        left: auto;
         z-index: 100;
         width: min(500px, 100vw);
         height: 100vh;
